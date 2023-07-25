@@ -74,6 +74,9 @@ function addFav(event,id){
 
 // Redirect to detailPage 
 function detailPage(id){
-    const url = "http://127.0.0.1:5500/pages/mealDetailPage.html?id="+id;
+    var re = new RegExp(/^.*\//);
+    var BaseURL = re.exec(window.location.href);
+    console.log("Base-URL "+BaseURL);
+    const url = BaseURL+"pages/mealDetailPage.html?id="+id;
     window.location.href = url;
 }

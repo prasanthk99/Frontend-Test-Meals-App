@@ -2,6 +2,8 @@ let detailsContainer = document.getElementById('details-container');
 // Get MealId from URL Param
 let MealId = window.location.href.split('=').reverse()[0];
 
+var newURL = window.location.protocol + "/" + window.location.host + "/" + window.location.pathname + window.location.search
+console.log("Base-URL "+newURL);
 // checking MealId
 if(!isNaN(MealId)){
     getDetail(MealId);

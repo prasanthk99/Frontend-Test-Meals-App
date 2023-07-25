@@ -9,7 +9,7 @@ function getData(){
         let link = "https://www.themealdb.com/api/json/v1/1/lookup.php?i="+Id;
         fetch(link).then(response => {return response.json()})
         .then(data=>{
-            console.log(data);
+            // console.log(data);
             let strTemp = `
                 <li>
                     <img src="${data.meals[0].strMealThumb}"  onclick="detailPage(${data.meals[0].idMeal})"/>
@@ -33,8 +33,9 @@ function removeFav(Id){
 
 // Redirect to detailPage
 function detailPage(id){
-    // alert(id);
-    const url = "http://127.0.0.1:5500/pages/mealDetailPage.html?id="+id;
+    var re = new RegExp(/^.*\//);
+    var BaseURL = re.exec(window.location.href);
+    const url = BaseURL+"mealDetailPage.html?id="+id;
     window.location.href = url;
 }
 
